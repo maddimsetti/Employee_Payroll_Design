@@ -13,7 +13,7 @@
     <!--UC 1 To Create An Employee Payroll System UI-->
     <header class="header-content header">
         <div class="logo-content">
-            <img src="../assets/image.jpg" alt="">
+            <img src="../assets/image.jpg" alt="" width="4%">
             <div>
                 <span class="emp-text">EMPLOYEE</span><br>
                 <span class="emp-text emp-payroll">PAYROLL</span>
@@ -25,9 +25,31 @@
             <!--UC 2 -->
             <div class="form-head">Employee Payroll form</div>
             <div class="row-content">
-                <abel class="label text" for="name">Name</abel>
+                <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
-            </div> 
+            </div>
+            <!-- UC 3 To Specify The Profile Pic in the Form --> 
+            <div class="row-content">
+                <label class="label text" for="profile">Profile image</label>
+                <div class="profile-radio-content">
+                    <label>
+                        <input type="radio" id="profile1" name="profile" value="../assets/image1.jpg" required>
+                        <img class="profile" id="image1" src="../assets/image1.jpg">
+                    </label>
+                    <label>
+                        <input type="radio" id="profile2" name="profile" value="../assets/image2.jpg" required>
+                        <img class="profile" id="image2" src="../assets/image2.jpg">
+                    </label>
+                    <label>
+                        <input type="radio" id="profile3" name="profile" value="../assets/image3.jpg" required>
+                        <img class="profile" id="image3" src="../assets/image3.jpg">
+                    </label>
+                    <label>
+                        <input type="radio" id="profile4" name="profile" value="../assets/image4.jpg" required>
+                        <img class="profile" id="image4" src="../assets/image4.jpg">
+                    </label>
+                </div>
+            </div>
         </form>
     </div>
     <body>
