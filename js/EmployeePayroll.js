@@ -1,11 +1,5 @@
-/**
- * @description Created Class for Employee PayRoll Data
- **/
- class EmployeePayrollData {
-     
-    /**
-     * @description Created Getter and Setter Method
-     **/
+class EmployeePayrollData {
+
     get name() {
         return this._name;
     }
@@ -48,7 +42,7 @@
     }
 
     set department(department) {
-        this._department = department
+        this._department = department;
     }
 
     get salary() {
@@ -80,7 +74,7 @@
         const options = { year: "numeric", month: "long", day: "numeric" };
         const empDate = !this.startDate ? "undefined" :
                         this.startDate.toLocaleDateString("en-US",options);
-        return "id = " +this.id+ ", name = " +this.name+ ", gender = " +gender+ ", ProfilePic = " +this.profilePic+ ", department = " +this.department+ ", salary = " +this.salary+ 
+        return "id = " +this.id+ ", name = " +this.name+ ", gender = " +this.gender+ ", ProfilePic = " +this.profilePic+ ", department = " +this.department+ ", salary = " +this.salary+ 
                      ", Start Date = " +empDate+ ", note = " +this.note;
     }
 }
