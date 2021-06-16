@@ -24,30 +24,30 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 const save = () => {
     try {
-        let employyeePayrollData = createEmployeePayroll();
-        createAndUpdateStorage(employyeePayrollData);
+        let employeePayrollData = createEmployeePayroll();
+        createAndUpdateStorage(employeePayrollData);
     } catch(e) {
         return;
     }
 }
 
 const createEmployeePayroll = () => {
-    let employyeePayrollData = new EmployeePayrollData();
+    let employeePayrollData = new EmployeePayrollData();
     try {
-        employyeePayrollData.name = getInputValueById("#name");
+        employeePayrollData.name = getInputValueById("#name");
     } catch(e) {
         setTextValue(".text-error",e);
         throw e;
     }
-    employyeePayrollData.profilePic = getSelectedValues("[name=profile]").pop();
-    employyeePayrollData.gender = getSelectedValues("[name=gender]").pop();
+    employeePayrollData.profilePic = getSelectedValues("[name=profile]").pop();
+    employeePayrollData.gender = getSelectedValues("[name=gender]").pop();
     employeePayrollData.department = getSelectedValues("[name=department]");
-    employyeePayrollData.salary = getInputValueById("#salary");
-    employyeePayrollData.note = getInputValueById("#notes");
+    employeePayrollData.salary = getInputValueById("#salary");
+    employeePayrollData.note = getInputValueById("#notes");
     let date = getInputValueById("#day")+ " " + getInputValueById("#month") +" "+ getInputValueById("#year");
-    employyeePayrollData.date = Date.parse(date);
-    alert(employyeePayrollData.toString());
-    return employyeePayrollData;
+    employeePayrollData.date = Date.parse(date);
+    alert(employeePayrollData.toString());
+    return employeePayrollData;
 }
 
 function createAndUpdateStorage(employeePayrollData) {
@@ -55,10 +55,10 @@ function createAndUpdateStorage(employeePayrollData) {
     if (employeePayrollList != undefined) {
         employeePayrollList.push(employeePayrollData);
     } else {
-        employeePayrollList = [employeePayrollData]
+        employeePayrollList = [employeePayrollData];
     }
-    alert(employyeePayrollList.toString());
-    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList))
+    alert(employeePayrollList.toString());
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
 }
 
 /*
