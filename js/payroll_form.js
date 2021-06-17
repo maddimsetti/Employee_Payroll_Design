@@ -14,6 +14,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
+    const date = document.querySelector('#date');
+    const dateError = document.querySelector(".date-error");
+    date.addEventListener('input', function() {
+        let startDate = getInputValueById('#day')+ " " +getInputValueById('#month')+ " " +getInputValueById('#year');
+        try {
+            //checkStartDate(new Date(Date.parse(startDate)));
+            (new EmployeePayrollData()).startDate = new date(Date.parse(startDate));
+            dateError.textContent= " ";
+        } catch (e) {
+            dateError.textContent = e;
+        }
+    });
+
     const salary = document.querySelector("#salary");
     const output = document.querySelector(".salary-output");
     output.textContent = salary.value;
@@ -22,6 +35,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+const checkStartDate = (startDate) => {
+    let now = new Date();
+    if(startDate > now) {
+        throw "StartDate is Future Date!";
+    }
+}
 const save = () => {
     try {
         let employeePayrollData = createEmployeePayroll();

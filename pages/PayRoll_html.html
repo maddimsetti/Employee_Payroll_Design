@@ -85,7 +85,7 @@
             <!-- UC 5 Employee Payroll Form With Start Date -->
             <div class="row-content">
                 <label class="label text" for="startDate">Start Date</label>
-                <div>
+                <div id="date">
                     <select id="day" name="Day">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -142,6 +142,7 @@
                         <option value="2016">2016</option>
                     </select>
                 </div>
+                <error-output class="date-error" for="startDate"></error-output>
             </div>
             <!-- UC 6 To Add Notes and Button -->
             <div class="row-content">

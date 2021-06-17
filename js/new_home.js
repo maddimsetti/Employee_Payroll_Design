@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     empPayrollList = getEmployeePayrollDataFromstorage();
     document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
+    localStorage.removeItem('editEmp');
 });
 
 const getEmployeePayrollDataFromstorage = () => {
@@ -23,10 +24,10 @@ const createInnerHtml = () => {
             <td>${empPayrollData._gender}</td>
             <td>${getDeptHtml(empPayrollData._department)}</td>
             <td>${empPayrollData._salary}</td>
-            <td>${empPayrollData._startDate}</td>
+            <td>${stringifyDate(empPayrollData._startDate)}</td>
             <td>
-                <img name="${empPayrollData._id}" onclick="remove(this)" alt="delete" src="../assets/image9.png" width="0%">
-                <img name="${empPayrollData._id}" alt="edit" onclick="update(this)" src="../assets/image8.svg" width="15%">
+                <img id="${empPayrollData._id}" onclick="remove(this)"  src="../assets/bin.svg" width="0%" alt="delete">
+                <img id="${empPayrollData._id}" onclick="update(this)"  src="../assets/image10.svg" width="10%" alt="edit">
             </td>
         </tr>`
         ;
@@ -40,6 +41,24 @@ const getDeptHtml = (deptList) => {
         deptHtml = `${deptHtml} <div class='dept-label'>${dept}</div>`
     }
     return deptHtml;
+}
+
+const remove = (node) => {
+    let empPayrollData = empPayrollList.find(empData => empData._id == node._id);
+    if(!empPayrollData) return;
+    const index = empPayrollList.map(empData => empData._id)
+                                .indexOf(empPayrollData._id);
+    empPayrollList.splice(index, 1);
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
+    document.querySelector(".emp-count").textContent = empPayrollList.length;
+    createInnerHtml();
+}
+
+const update = (node) => {
+    let empPayrollData = empPayrollList.find(empdata => empdata._id == node._id);
+    if (!empPayrollData) return;
+    localStorage.setItem('editEmp', JSON.stringify(empPayrollData));
+    window.location.replace(site_properties.add_emp_payroll_page);
 }
 
 
