@@ -1,13 +1,13 @@
 const stringifyDate = (date) => {
-    const options = { day: 'numeric', month: 'short', year: 'numeric' };
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const newDate = !date ? "undefined" :
                     new Date(Date.parse(date)).toLocaleDateString('en-GB', options);
     return newDate;
 }
 
 const update = (node) => {
-    let empPayrollData = empPayrollList.find(empdata => empdata._id == node._id);
+    let empPayrollData = empPayrollList.find(empdata => empdata._id == node.id);
     if (!empPayrollData) return;
-    localStorage.setItem('editEmp', JSON.stringify(empPayrollData));
+    localStorage.setItem('editEmp', JSON.stringify(empPayrollData))
     window.location.replace(site_properties.add_emp_payroll_page);
 }

@@ -7,8 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/payRoll_css.css">
     <title>Employee Payroll Form</title>
-    <script defer src="../js/payroll_form.js"></script>
-    <script defer src="../js/EmployeePayroll.js"></script>
 </head>
 <body>
     <!--UC 1 To Create An Employee Payroll System UI-->
@@ -22,7 +20,7 @@
         </div>
     </header>
     <div id="formId" class="form-content">
-        <form class="form" action="#" onreset="resetForm()" onsubmit="save(event)">
+        <form class="form" action="#" onreset="resetForm()" onsubmit="save()">
             <!--UC 2 -->
             <div class="form-head">Employee Payroll form</div>
             <div class="row-content">
@@ -122,13 +120,13 @@
                     <select id="month" name="Month">
                         <option value="Jan">Januray</option>
                         <option value="Feb">Febuary</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
+                        <option value="Mar">March</option>
+                        <option value="Apr">April</option>
                         <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
+                        <option value="Jun">June</option>
+                        <option value="Jul">July</option>
                         <option value="Aug">August</option>
-                        <option value="Sept">September</option>
+                        <option value="Sep">September</option>
                         <option value="Oct">October</option>
                         <option value="Nov">November</option>
                         <option value="Dec">December</option>
@@ -150,7 +148,7 @@
                 <textarea id="notes" class="input" name="Notes" placeholder="" style="height:100px"></textarea>
             </div>
             <div class="buttonParent">
-                <a href="./payrollHome_html.html" class="resetButton button cancelButton">Cancel</a>
+                <a href="../pages/payrollHome_html.html" class="resetButton button cancelButton">Cancel</a>
                 <div class="submit-reset">
                     <button type="submit" class="button submitButton" id="submitButton">Submit</button>
                     <button type="reset" class="resetButton button">Reset</button>
@@ -158,5 +156,9 @@
             </div>
         </form>
     </div>
+    <script src="../js/utility.js"></script>
+    <script src="../js/site_properties.js"></script>
+    <script defer src="../js/payroll_form.js"></script>
+    <script defer src="../js/EmployeePayroll.js"></script>
     <body>
 </html>
