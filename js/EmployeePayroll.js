@@ -69,7 +69,7 @@ class EmployeePayrollData {
     }
 
     set startDate(startDate) {
-        let now = newDate();
+        let now = new Date();
         if (startDate > now) {
             throw "Start Date is a Future Date!";
         }
